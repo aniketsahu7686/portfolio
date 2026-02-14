@@ -97,7 +97,7 @@
 
     .hero-right {
         flex: 1;
-        background: $color-bg-dark; // Dark side
+        background: #000000; // Pure black to match PNG photo background
         display: flex;
         align-items: center;
         justify-content: center;
@@ -115,7 +115,7 @@
                 left: -100px;
                 width: 150px;
                 height: 100%;
-                background: $color-bg-dark;
+                background: #000000;
                 transform: skewX(-10deg);
                 z-index: 1;
             }
@@ -127,32 +127,30 @@
             height: 100%;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-end; // Push image to bottom
 
             .image-wrapper {
-                width: 300px;
-                height: 400px;
+                width: auto;
+                height: 90%;
+                max-width: 100%;
                 position: relative;
-                overflow: hidden;
-                border-radius: 8px;
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 
-                // Glitch/Hover effect
-                transition: transform 0.3s ease;
-
-                &:hover {
-                    transform: scale(1.02);
-                }
+                // No card effects — PNG blends with dark bg
+                box-shadow: none;
+                border-radius: 0;
+                overflow: visible;
 
                 img {
-                    width: 100%;
                     height: 100%;
-                    object-fit: cover;
-                    filter: grayscale(100%);
-                    transition: 0.5s ease;
+                    width: auto;
+                    max-width: 100%;
+                    object-fit: contain;
+                    filter: none; // No grayscale — show full color
+                    display: block;
+                    transition: transform 0.5s ease;
 
                     &:hover {
-                        filter: grayscale(0%);
+                        transform: scale(1.03);
                     }
                 }
             }
