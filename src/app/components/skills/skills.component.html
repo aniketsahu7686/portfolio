@@ -1,0 +1,18 @@
+<section id="skills" class="skills-section">
+    <div class="container">
+        <h2 class="section-title light">My Skills</h2>
+
+        <div class="skills-grid" *ngIf="skills$ | async as skills">
+            <div class="skill-card" *ngFor="let skill of skills">
+                <div class="icon-wrapper">
+                    <!-- Placeholder for icon implementation. Using text for now if image fails or path invalid -->
+                    <img [src]="skill.icon" [alt]="skill.name" onerror="this.style.display='none'">
+                    <span class="initial" *ngIf="!skill.icon || skill.icon.includes('.svg')">{{ skill.name.charAt(0)
+                        }}</span>
+                </div>
+                <h3 class="skill-name">{{ skill.name }}</h3>
+                <span class="skill-category">{{ skill.category }}</span>
+            </div>
+        </div>
+    </div>
+</section>

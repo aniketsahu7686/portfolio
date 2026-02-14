@@ -1,0 +1,21 @@
+@import '../../../styles.scss';
+
+.about-section {
+    padding: 5rem 0;
+    background-color: $color-bg-light;
+
+    .about-content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+
+        .text-block {
+            p {
+                margin-bottom: 1.5rem;
+                font-size: 1.1rem;
+                color: lighten($color-text-dark, 20%);
+                line-height: 1.8;
+            }
+        }
+    }
+}

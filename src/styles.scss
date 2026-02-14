@@ -1,0 +1,70 @@
+/* Global Variables */
+$color-bg-dark: #1a1a1a;
+$color-bg-light: #ffffff;
+$color-light-gray: #f0f0f0;
+$color-primary: #00ff7f; // Spring Green for contrast
+$color-secondary: #00bfff; // Deep Sky Blue
+$color-text-light: #ffffff;
+$color-text-dark: #333333;
+$color-text-dim: #cccccc;
+$font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+/* Reset & Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: $font-main;
+    background-color: $color-bg-light;
+    color: $color-text-dark;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Utilities */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: $color-text-dark;
+
+    &.light {
+        color: $color-text-light;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

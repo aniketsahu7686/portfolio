@@ -1,0 +1,72 @@
+@import '../../../styles.scss';
+
+.contact-section {
+    padding: 5rem 0;
+    background-color: $color-bg-dark;
+    color: $color-text-light;
+
+    .contact-wrapper {
+        max-width: 600px;
+        margin: 0 auto;
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+
+                label {
+                    font-weight: 500;
+                    color: $color-text-dim;
+                }
+
+                input,
+                textarea {
+                    padding: 1rem;
+                    background: rgba(255, 255, 255, 0.05);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    border-radius: 4px;
+                    color: $color-text-light;
+                    font-family: inherit;
+                    transition: 0.3s;
+
+                    &:focus {
+                        outline: none;
+                        border-color: $color-primary;
+                        background: rgba(255, 255, 255, 0.1);
+                    }
+
+                    &.error {
+                        border-color: #ff4d4d;
+                    }
+                }
+
+                .error-msg {
+                    color: #ff4d4d;
+                    font-size: 0.8rem;
+                }
+            }
+
+            .btn-submit {
+                padding: 1rem;
+                background: $color-primary;
+                color: $color-bg-dark; // Dark text on bright button
+                border: none;
+                border-radius: 4px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: 0.3s;
+                margin-top: 1rem;
+
+                &:hover {
+                    opacity: 0.9;
+                    transform: translateY(-2px);
+                }
+            }
+        }
+    }
+}

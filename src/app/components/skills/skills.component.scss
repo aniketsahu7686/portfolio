@@ -1,0 +1,72 @@
+@import '../../../styles.scss';
+
+.skills-section {
+    padding: 5rem 0;
+    background-color: $color-bg-dark;
+    color: $color-text-light;
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 2rem;
+        padding: 0 1rem;
+
+        .skill-card {
+            background: lighten($color-bg-dark, 5%);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease, background 0.3s ease;
+            cursor: default;
+
+            &:hover {
+                transform: translateY(-5px);
+                background: lighten($color-bg-dark, 10%);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+
+                .icon-wrapper {
+                    color: $color-primary;
+                    border-color: $color-primary;
+                }
+            }
+
+            .icon-wrapper {
+                width: 60px;
+                height: 60px;
+                margin: 0 auto 1rem;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.05);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                font-weight: bold;
+                border: 2px solid transparent;
+                transition: 0.3s;
+
+                img {
+                    width: 50%;
+                    height: 50%;
+                    object-fit: contain;
+                }
+
+                .initial {
+                    display: block; // Fallback
+                }
+            }
+
+            .skill-name {
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+                font-weight: 600;
+            }
+
+            .skill-category {
+                font-size: 0.8rem;
+                color: $color-text-dim;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+        }
+    }
+}

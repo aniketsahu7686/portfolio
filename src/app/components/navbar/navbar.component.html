@@ -1,0 +1,18 @@
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="container">
+    <a href="#" class="logo">Portfolio.</a>
+    
+    <div class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nav-links" [class.active]="isMenuOpen">
+      <li><a href="#about" (click)="closeMenu()">About</a></li>
+      <li><a href="#skills" (click)="closeMenu()">Skills</a></li>
+      <li><a href="#portfolio" (click)="closeMenu()">Portfolio</a></li>
+      <li><a href="#contact" (click)="closeMenu()" class="btn-contact">Contact Me</a></li>
+    </ul>
+  </div>
+</nav>
