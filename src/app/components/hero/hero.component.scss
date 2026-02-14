@@ -127,15 +127,14 @@
             height: 100%;
             display: flex;
             justify-content: center;
-            align-items: flex-end; // Push image to bottom
+            align-items: flex-end; // Anchor to bottom
 
             .image-wrapper {
                 width: auto;
-                height: 90%;
+                height: 100%; // Fill full height
                 max-width: 100%;
                 position: relative;
 
-                // No card effects — PNG blends with dark bg
                 box-shadow: none;
                 border-radius: 0;
                 overflow: visible;
@@ -145,7 +144,8 @@
                     width: auto;
                     max-width: 100%;
                     object-fit: contain;
-                    filter: none; // No grayscale — show full color
+                    object-position: bottom center; // Anchor person to bottom
+                    filter: none;
                     display: block;
                     transition: transform 0.5s ease;
 
