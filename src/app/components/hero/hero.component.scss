@@ -2,7 +2,7 @@
 
 .hero {
     display: flex;
-    min-height: 100vh;
+    height: 100vh;
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -16,80 +16,70 @@
 
     .hero-left {
         flex: 1;
-        background: $color-light-gray; // Light side
+        background: $color-light-gray;
         color: $color-bg-dark;
         display: flex;
         align-items: center;
-        justify-content: center;
-        padding: 2rem;
+        justify-content: flex-start;
+        padding: 0 3rem 0 6rem;
         position: relative;
 
         .content {
-            max-width: 500px;
+            max-width: 600px;
             z-index: 2;
         }
 
         .greeting {
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: $color-primary;
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-style: italic;
+            color: $color-bg-dark;
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 2rem;
         }
 
         h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 0.5rem;
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 0.3rem;
             color: $color-bg-dark;
+            letter-spacing: -1px;
         }
 
         .role {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: lighten($color-bg-dark, 20%);
-            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #999;
+            margin-bottom: 0;
         }
 
-        .description {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #555;
-            margin-bottom: 2.5rem;
-            max-width: 400px;
-        }
-
-        .cta-group {
+        .social-icons {
+            position: absolute;
+            bottom: 3rem;
+            left: 6rem;
             display: flex;
             gap: 1rem;
 
-            .btn {
-                padding: 0.8rem 2rem;
-                border-radius: 4px;
-                font-weight: 600;
-                text-decoration: none;
-                transition: 0.3s ease;
+            .social-icon {
+                width: 50px;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: darken($color-light-gray, 8%);
+                border-radius: 10px;
+                color: $color-bg-dark;
+                transition: all 0.3s ease;
 
-                &.btn-primary {
-                    background: $color-bg-dark; // Dark button on light bg
-                    color: $color-text-light;
-
-                    &:hover {
-                        opacity: 0.9;
-                        transform: translateY(-2px);
-                    }
+                &:hover {
+                    background: darken($color-light-gray, 15%);
+                    transform: translateY(-3px);
                 }
 
-                &.btn-outline {
-                    border: 2px solid $color-bg-dark;
-                    color: $color-bg-dark;
-
-                    &:hover {
-                        background: $color-bg-dark;
-                        color: $color-text-light;
-                        transform: translateY(-2px);
-                    }
+                svg {
+                    width: 24px;
+                    height: 24px;
                 }
             }
         }
