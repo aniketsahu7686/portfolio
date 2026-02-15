@@ -1,71 +1,91 @@
 @import '../../../styles.scss';
 
 .skills-section {
-    padding: 5rem 0;
-    background-color: $color-bg-dark;
-    color: $color-text-light;
+    padding: 6rem 0;
+    background-color: #000000;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
 
-    .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 2rem;
-        padding: 0 1rem;
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+    }
 
-        .skill-card {
-            background: lighten($color-bg-dark, 5%);
-            padding: 2rem;
-            border-radius: 8px;
-            text-align: center;
-            transition: transform 0.3s ease, background 0.3s ease;
-            cursor: default;
+    .category-group {
+        margin-bottom: 5rem;
 
-            &:hover {
-                transform: translateY(-5px);
-                background: lighten($color-bg-dark, 10%);
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2.5rem;
+            color: #ffffff;
+            border-left: 4px solid $color-primary; // Optional accent
+            padding-left: 1rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 2rem;
+            justify-items: center;
+
+            @media (min-width: 768px) {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 3rem;
+            }
+
+            .skill-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                padding: 1.5rem;
+                border-radius: 12px;
+                background: transparent; // Keeping it clean/transparent as per "black background" request, or maybe faint highlight?
+                // Minimalist style:
+                transition: transform 0.3s ease;
+
+                &:hover {
+                    transform: translateY(-5px);
+
+                    .skill-name {
+                        color: $color-primary;
+                    }
+                }
 
                 .icon-wrapper {
-                    color: $color-primary;
-                    border-color: $color-primary;
-                }
-            }
+                    width: 70px;
+                    height: 70px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 0.5rem;
 
-            .icon-wrapper {
-                width: 60px;
-                height: 60px;
-                margin: 0 auto 1rem;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.05);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.5rem;
-                font-weight: bold;
-                border: 2px solid transparent;
-                transition: 0.3s;
-
-                img {
-                    width: 50%;
-                    height: 50%;
-                    object-fit: contain;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
                 }
 
-                .initial {
-                    display: block; // Fallback
+                .skill-name {
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    color: #cccccc; // Slightly dimmed text
+                    text-align: center;
+                    transition: color 0.3s ease;
                 }
-            }
-
-            .skill-name {
-                font-size: 1.1rem;
-                margin-bottom: 0.5rem;
-                font-weight: 600;
-            }
-
-            .skill-category {
-                font-size: 0.8rem;
-                color: $color-text-dim;
-                text-transform: uppercase;
-                letter-spacing: 1px;
             }
         }
     }

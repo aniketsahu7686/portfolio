@@ -1,5 +1,5 @@
 export interface Skill {
     name: string;
-    icon: string; // URL or icon class
-    category: 'Frontend' | 'Backend' | 'Tools' | 'Soft Skills';
+    icon: string;
+    category: 'USING NOW' | 'DEVOPS & CLOUD' | 'LEARNING';
 }

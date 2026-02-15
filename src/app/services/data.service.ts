@@ -45,12 +45,32 @@ export class DataService {
     ];
 
     private skills: Skill[] = [
-        { name: 'Angular', icon: 'assets/icons/angular.svg', category: 'Frontend' },
-        { name: 'React', icon: 'assets/icons/react.svg', category: 'Frontend' },
-        { name: 'TypeScript', icon: 'assets/icons/typescript.svg', category: 'Frontend' },
-        { name: 'SCSS', icon: 'assets/icons/sass.svg', category: 'Frontend' },
-        { name: 'Node.js', icon: 'assets/icons/node.svg', category: 'Backend' },
-        { name: 'Git', icon: 'assets/icons/git.svg', category: 'Tools' }
+        // USING NOW
+        { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg', category: 'USING NOW' },
+        { name: 'Spring Boot', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg', category: 'USING NOW' },
+        { name: 'Angular', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg', category: 'USING NOW' },
+        { name: 'AWS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg', category: 'USING NOW' },
+        { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg', category: 'USING NOW' },
+        { name: 'Jenkins', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg', category: 'USING NOW' },
+        { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg', category: 'USING NOW' },
+        { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg', category: 'USING NOW' },
+
+        // DEVOPS & CLOUD
+        { name: 'AWS (EC2, S3, ECS, IAM)', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg', category: 'DEVOPS & CLOUD' },
+        { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg', category: 'DEVOPS & CLOUD' },
+        { name: 'Jenkins', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg', category: 'DEVOPS & CLOUD' },
+        { name: 'SonarQube', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sonarqube/sonarqube-original.svg', category: 'DEVOPS & CLOUD' },
+        { name: 'Nexus', icon: 'https://assets.gcore.pro/blog_containerizing_prod/uploads/2023/10/nexus-logo-visual-edit.png', category: 'DEVOPS & CLOUD' }, // Nexus doesn't have a standard devicon, using a fallback or I can use a generic package icon if this fails.
+        { name: 'GitHub Actions', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg', category: 'DEVOPS & CLOUD' },
+        { name: 'Linux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg', category: 'DEVOPS & CLOUD' },
+        { name: 'Maven', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg', category: 'DEVOPS & CLOUD' },
+
+        // LEARNING
+        { name: 'AI', icon: 'https://img.icons8.com/color/96/artificial-intelligence.png', category: 'LEARNING' },
+        { name: 'Kubernetes', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg', category: 'LEARNING' },
+        { name: 'Terraform', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg', category: 'LEARNING' },
+        { name: 'System Design', icon: 'https://img.icons8.com/dusk/64/system-task.png', category: 'LEARNING' },
+        { name: 'Microservices', icon: 'https://img.icons8.com/dusk/64/server.png', category: 'LEARNING' }
     ];
 
     constructor() { }
