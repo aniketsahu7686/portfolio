@@ -1,7 +1,10 @@
 <nav class="navbar" [class.scrolled]="isScrolled">
   <div class="container">
-    <a href="#" class="logo">Portfolio.</a>
-    
+    <a class="logo" (click)="scrollToTop($event)" [class.ripple-active]="isRippling">
+      <span class="logo-text">AS</span><span class="logo-dot">.</span>
+      <span class="logo-ripple"></span>
+    </a>
+
     <div class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
       <span></span>
       <span></span>

@@ -12,6 +12,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class NavbarComponent {
     isScrolled = false;
     isMenuOpen = false;
+    isRippling = false;
 
     @HostListener('window:scroll', [])
     onWindowScroll() {
@@ -24,5 +25,12 @@ export class NavbarComponent {
 
     closeMenu() {
         this.isMenuOpen = false;
+    }
+
+    scrollToTop(event: Event) {
+        event.preventDefault();
+        this.isRippling = true;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(() => this.isRippling = false, 600);
     }
 }
