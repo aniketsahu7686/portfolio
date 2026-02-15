@@ -1,17 +1,24 @@
 <section id="about" class="about-section">
+    <div class="floating-blob blob-1"></div>
+    <div class="floating-blob blob-2"></div>
+    <div class="floating-blob blob-3"></div>
     <div class="container">
         <h2 class="section-title"><span>About Me</span></h2>
-        <div class="about-content">
+        <div class="about-content" [class.revealed]="isRevealed">
             <div class="text-block">
                 <p>
-                    I’m a Java Full Stack Developer passionate about building scalable web applications and deploying
+                    I'm a <span class="highlight">Java Full Stack Developer</span> passionate about building scalable
+                    web applications and deploying
                     them on the cloud.
                 </p>
                 <p>
-                    Currently working in the IT industry after completing my engineering from VIT-AP and securing
-                    placement at LTM, I specialize in Java, Spring Boot, Angular, and AWS Cloud technologies. I
-                    don’t just build applications — I deploy, automate, monitor, and scale them using DevOps tools like
-                    Jenkins, Docker, ECS, SonarQube, and Nexus.
+                    Currently working in the IT industry after completing my engineering from <span
+                        class="highlight">VIT-AP</span> and securing
+                    placement at <span class="highlight">LTM</span>, I specialize in <span class="highlight">Java,
+                        Spring Boot, Angular</span>, and <span class="highlight">AWS Cloud</span> technologies. I
+                    don't just build applications — I deploy, automate, monitor, and scale them using DevOps tools like
+                    <span class="highlight">Jenkins, Docker, ECS, SonarQube</span>, and <span
+                        class="highlight">Nexus</span>.
                 </p>
             </div>
         </div>

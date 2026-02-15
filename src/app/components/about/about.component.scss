@@ -1,21 +1,137 @@
 @import '../../../styles.scss';
 
 .about-section {
-    padding: 5rem 0;
-    background-color: $color-bg-light;
+    position: relative;
+    padding: 6rem 0;
+    background: #fafafa;
+    overflow: hidden;
 
+    // ── Floating gradient blobs ──
+    .floating-blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.5;
+        pointer-events: none;
+        z-index: 0;
+
+        &.blob-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(99, 140, 255, 0.15), transparent 70%);
+            top: -100px;
+            right: -50px;
+            animation: blobFloat 8s ease-in-out infinite;
+        }
+
+        &.blob-2 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(168, 130, 255, 0.12), transparent 70%);
+            bottom: -80px;
+            left: -60px;
+            animation: blobFloat 10s ease-in-out infinite reverse;
+        }
+
+        &.blob-3 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(80, 200, 180, 0.1), transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: blobFloat 12s ease-in-out infinite;
+        }
+    }
+
+    .container {
+        position: relative;
+        z-index: 1;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    // ── About content card ──
     .about-content {
-        max-width: 800px;
+        max-width: 780px;
         margin: 0 auto;
         text-align: center;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        border-radius: 20px;
+        padding: 3rem 3.5rem;
+        box-shadow:
+            0 4px 24px rgba(0, 0, 0, 0.04),
+            0 1px 4px rgba(0, 0, 0, 0.03);
+
+        // Scroll reveal states
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+            transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+        &.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         .text-block {
             p {
+                font-size: 1.15rem;
+                font-weight: 400;
+                color: #444;
+                line-height: 2;
                 margin-bottom: 1.5rem;
-                font-size: 1.1rem;
-                color: lighten($color-text-dark, 20%);
-                line-height: 1.8;
+                letter-spacing: 0.1px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
             }
         }
+
+        // ── Highlighted keywords with animated underline ──
+        .highlight {
+            font-weight: 600;
+            color: #1a1a1a;
+            position: relative;
+            display: inline;
+
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: -1px;
+                width: 0;
+                height: 2px;
+                background: linear-gradient(90deg, #638cff, #a478ff);
+                border-radius: 2px;
+                transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+
+            &:hover::after {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// ── Keyframes ──
+@keyframes blobFloat {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(15px, -20px) scale(1.05);
+    }
+
+    66% {
+        transform: translate(-10px, 15px) scale(0.95);
     }
 }
