@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 import Swal from 'sweetalert2';
 
@@ -20,16 +20,12 @@ export class ContactComponent {
     };
 
     submitted = false;
-    successMessage = '';
-    errorMessage = '';
     loading = false;
 
-    sendEmail() {
+    sendEmail(contactForm: NgForm) {
         this.submitted = true;
-        this.successMessage = '';
-        this.errorMessage = '';
 
-        if (!this.form.name || !this.form.email || !this.form.message) {
+        if (contactForm.invalid) {
             return;
         }
 
@@ -45,6 +41,7 @@ export class ContactComponent {
                 this.form = { name: '', email: '', phone: '', message: '' };
                 this.submitted = false;
                 this.loading = false;
+                contactForm.resetForm();
                 Swal.fire({
                     toast: true,
                     position: 'top-end',

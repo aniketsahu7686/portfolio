@@ -13,40 +13,57 @@
             <div class="card-content">
                 <p class="subtitle">Let's build something amazing together.</p>
 
-                <form class="contact-form" (ngSubmit)="sendEmail()">
+                <form class="contact-form" #contactForm="ngForm" (ngSubmit)="sendEmail(contactForm)">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" [(ngModel)]="form.name" name="name" placeholder="Deepak Singh"
-                            [class.error]="!form.name && submitted">
-                        <small class="error-msg" *ngIf="!form.name && submitted">Name is
-                            required</small>
+                            required minlength="3" maxlength="50" pattern="^[a-zA-Z\s]+$" #nameField="ngModel"
+                            [class.error]="nameField.invalid && (nameField.touched || submitted)">
+                        <small class="error-msg" *ngIf="nameField.invalid && (nameField.touched || submitted)">
+                            <span *ngIf="nameField.errors?.['required']">Name is required</span>
+                            <span *ngIf="nameField.errors?.['minlength']">Name must be at least 3 characters</span>
+                            <span *ngIf="nameField.errors?.['maxlength']">Name cannot exceed 50 characters</span>
+                            <span *ngIf="nameField.errors?.['pattern']">Only letters and spaces allowed</span>
+                        </small>
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" id="email" [(ngModel)]="form.email" name="email"
-                            placeholder="Deepak34@example.com" [class.error]="!form.email && submitted">
-                        <small class="error-msg" *ngIf="!form.email && submitted">Valid email is
-                            required</small>
+                            placeholder="Deepak34@example.com" required email #emailField="ngModel"
+                            [class.error]="emailField.invalid && (emailField.touched || submitted)">
+                        <small class="error-msg" *ngIf="emailField.invalid && (emailField.touched || submitted)">
+                            <span *ngIf="emailField.errors?.['required']">Email is required</span>
+                            <span *ngIf="emailField.errors?.['email']">Please enter a valid email</span>
+                        </small>
                     </div>
 
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" [(ngModel)]="form.phone" name="phone" placeholder="+91 9876543210">
+                        <input type="tel" id="phone" [(ngModel)]="form.phone" name="phone" placeholder="9876543210"
+                            required pattern="^[0-9]{10}$" maxlength="10" #phoneField="ngModel"
+                            [class.error]="phoneField.invalid && (phoneField.touched || submitted)">
+                        <small class="error-msg" *ngIf="phoneField.invalid && (phoneField.touched || submitted)">
+                            <span *ngIf="phoneField.errors?.['required']">Phone number is required</span>
+                            <span *ngIf="phoneField.errors?.['pattern']">Enter exactly 10 digits</span>
+                        </small>
                     </div>
 
                     <div class="form-group">
                         <label for="message">Message</label>
                         <textarea id="message" [(ngModel)]="form.message" name="message" rows="5"
-                            placeholder="Send me a message." [class.error]="!form.message && submitted"></textarea>
-                        <small class="error-msg" *ngIf="!form.message && submitted">Message is
-                            required</small>
+                            placeholder="Send me a message." required minlength="10" maxlength="500"
+                            #messageField="ngModel"
+                            [class.error]="messageField.invalid && (messageField.touched || submitted)"></textarea>
+                        <small class="error-msg" *ngIf="messageField.invalid && (messageField.touched || submitted)">
+                            <span *ngIf="messageField.errors?.['required']">Message is required</span>
+                            <span *ngIf="messageField.errors?.['minlength']">Message must be at least 10
+                                characters</span>
+                            <span *ngIf="messageField.errors?.['maxlength']">Message cannot exceed 500 characters</span>
+                        </small>
                     </div>
 
-                    <div class="success-msg" *ngIf="successMessage">{{ successMessage }}</div>
-                    <div class="error-msg" *ngIf="errorMessage">{{ errorMessage }}</div>
-
-                    <button type="submit" class="btn-submit" [disabled]="loading">
+                    <button type="submit" class="btn-submit" [disabled]="contactForm.invalid || loading">
                         <span class="btn-text">{{ loading ? 'Sending...' : 'Send Message' }}</span>
                         <div class="btn-glow"></div>
                     </button>
