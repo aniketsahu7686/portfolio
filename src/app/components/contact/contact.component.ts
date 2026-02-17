@@ -1,37 +1,77 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import emailjs from '@emailjs/browser';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-contact',
     standalone: true,
-    imports: [CommonModule, ReactiveFormsModule],
+    imports: [CommonModule, FormsModule],
     templateUrl: './contact.component.html',
     styleUrl: './contact.component.scss'
 })
 export class ContactComponent {
-    contactForm: FormGroup;
+    form = {
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+    };
+
     submitted = false;
+    successMessage = '';
+    errorMessage = '';
+    loading = false;
 
-    constructor(private fb: FormBuilder) {
-        this.contactForm = this.fb.group({
-            name: ['', Validators.required],
-            email: ['', [Validators.required, Validators.email]],
-            phone: ['', [Validators.pattern('^[0-9+ -]*$')]],
-            message: ['', Validators.required]
-        });
-    }
-
-    onSubmit() {
+    sendEmail() {
         this.submitted = true;
-        if (this.contactForm.valid) {
-            console.log('Form Submitted!', this.contactForm.value);
-            // Simulate API call
-            setTimeout(() => {
-                alert('Message sent successfully! (Console Logged)');
-                this.contactForm.reset();
-                this.submitted = false;
-            }, 1000);
+        this.successMessage = '';
+        this.errorMessage = '';
+
+        if (!this.form.name || !this.form.email || !this.form.message) {
+            return;
         }
+
+        this.loading = true;
+
+        emailjs.send(
+            'service_h9bz33i',
+            'template_8kzgbcj',
+            this.form,
+            '6DPfyh1btH2-MCwMP'
+        ).then(
+            () => {
+                this.form = { name: '', email: '', phone: '', message: '' };
+                this.submitted = false;
+                this.loading = false;
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Message sent successfully!',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    background: '#1f2937',
+                    color: '#fff'
+                });
+            },
+            (error) => {
+                this.loading = false;
+                console.error('EmailJS Error:', error);
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'Failed to send message',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    background: '#1f2937',
+                    color: '#fff'
+                });
+            }
+        );
     }
 }

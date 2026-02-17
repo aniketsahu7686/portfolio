@@ -13,43 +13,41 @@
             <div class="card-content">
                 <p class="subtitle">Let's build something amazing together.</p>
 
-                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+                <form class="contact-form" (ngSubmit)="sendEmail()">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" id="name" formControlName="name" placeholder="Deepak Singh"
-                            [class.error]="contactForm.get('name')?.invalid && submitted">
-                        <small class="error-msg" *ngIf="contactForm.get('name')?.invalid && submitted">Name is
+                        <input type="text" id="name" [(ngModel)]="form.name" name="name" placeholder="Deepak Singh"
+                            [class.error]="!form.name && submitted">
+                        <small class="error-msg" *ngIf="!form.name && submitted">Name is
                             required</small>
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" formControlName="email" placeholder="Deepak34@example.com"
-                            [class.error]="contactForm.get('email')?.invalid && submitted">
-                        <small class="error-msg" *ngIf="contactForm.get('email')?.invalid && submitted">Valid email is
+                        <input type="email" id="email" [(ngModel)]="form.email" name="email"
+                            placeholder="Deepak34@example.com" [class.error]="!form.email && submitted">
+                        <small class="error-msg" *ngIf="!form.email && submitted">Valid email is
                             required</small>
                     </div>
 
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" formControlName="phone" placeholder="+91 9876543210"
-                            [class.error]="contactForm.get('phone')?.invalid && submitted">
-                        <small class="error-msg" *ngIf="contactForm.get('phone')?.invalid && submitted">
-                            Invalid phone number
-                        </small>
+                        <input type="tel" id="phone" [(ngModel)]="form.phone" name="phone" placeholder="+91 9876543210">
                     </div>
 
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea id="message" formControlName="message" rows="5"
-                            placeholder="Send me a message."
-                            [class.error]="contactForm.get('message')?.invalid && submitted"></textarea>
-                        <small class="error-msg" *ngIf="contactForm.get('message')?.invalid && submitted">Message is
+                        <textarea id="message" [(ngModel)]="form.message" name="message" rows="5"
+                            placeholder="Send me a message." [class.error]="!form.message && submitted"></textarea>
+                        <small class="error-msg" *ngIf="!form.message && submitted">Message is
                             required</small>
                     </div>
 
-                    <button type="submit" class="btn-submit">
-                        <span class="btn-text">Send Message</span>
+                    <div class="success-msg" *ngIf="successMessage">{{ successMessage }}</div>
+                    <div class="error-msg" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+                    <button type="submit" class="btn-submit" [disabled]="loading">
+                        <span class="btn-text">{{ loading ? 'Sending...' : 'Send Message' }}</span>
                         <div class="btn-glow"></div>
                     </button>
                 </form>

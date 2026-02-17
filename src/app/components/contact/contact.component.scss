@@ -171,6 +171,20 @@
                 }
             }
 
+            .success-msg {
+                color: #00ff7f;
+                font-size: 0.95rem;
+                text-align: center;
+                animation: fadeIn 0.3s ease;
+            }
+
+            >.error-msg {
+                color: #ff4d4d;
+                font-size: 0.95rem;
+                text-align: center;
+                animation: fadeIn 0.3s ease;
+            }
+
             .btn-submit {
                 position: relative;
                 padding: 1rem 2rem;
