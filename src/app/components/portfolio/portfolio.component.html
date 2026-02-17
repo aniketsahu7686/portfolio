@@ -1,6 +1,17 @@
 <section id="portfolio" class="portfolio-section">
+    <!-- Animated Background Shapes -->
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
     <div class="container">
-        <h2 class="section-title"><span>My Portfolio</span></h2>
+        <h2 class="section-title">
+            <span>My Portfolio</span>
+            <div class="title-underline"></div>
+        </h2>
+
         <div class="projects-grid" *ngIf="projects$ | async as projects">
             <div class="project-card" *ngFor="let project of projects">
                 <div class="card-image">
