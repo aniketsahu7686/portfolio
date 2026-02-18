@@ -34,5 +34,63 @@
                 </div>
             </div>
         </div>
+
+        <!-- Statistics Row -->
+        <div class="stats-row" [class.revealed]="isRevealed">
+            <div class="stat-item">
+                <span class="stat-number">15+</span>
+                <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-number">20+</span>
+                <span class="stat-label">Tools & Tech</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-number">3</span>
+                <span class="stat-label">Certifications</span>
+            </div>
+        </div>
+
+        <!-- What I Do Cards -->
+        <div class="what-i-do">
+            <h3 class="sub-heading" [class.revealed]="isRevealed">What I Do</h3>
+            <div class="cards-grid" [class.revealed]="isRevealed">
+                <div class="do-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+                    <h4>Backend Development</h4>
+                    <p>Building robust REST APIs and microservices with Java, Spring Boot, and scalable database
+                        architectures.</p>
+                </div>
+                <div class="do-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-cloud"></i>
+                    </div>
+                    <h4>Cloud & DevOps</h4>
+                    <p>Deploying and automating infrastructure on AWS using Docker, Jenkins, ECS, and CI/CD pipelines.
+                    </p>
+                </div>
+                <div class="do-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <h4>Full Stack</h4>
+                    <p>End-to-end application development with Angular frontends and Spring Boot backends, from design
+                        to deployment.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resume Download Button -->
+        <div class="resume-section" [class.revealed]="isRevealed">
+            <a href="assets/resume.pdf" download class="btn-resume">
+                <i class="fa-solid fa-download"></i>
+                Download Resume
+            </a>
+        </div>
+
     </div>
 </section>

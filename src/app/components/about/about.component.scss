@@ -60,7 +60,7 @@
         position: relative;
         z-index: 1;
         width: 100%;
-        max-width: 900px;
+        max-width: 1100px;
         margin: 0 auto;
         padding: 0 2rem;
     }
@@ -174,6 +174,296 @@
             }
         }
     }
+
+    // ══════════════════════════════════════
+    // STATISTICS ROW
+    // ══════════════════════════════════════
+    .stats-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        margin: 3.5rem auto 0;
+        max-width: 680px;
+        padding: 2rem 2.5rem;
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 18px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+
+        // Scroll reveal
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s,
+            transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+
+        &.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+
+            .stat-number {
+                font-size: 2.2rem;
+                font-weight: 800;
+                background: linear-gradient(135deg, $color-primary, #00bfff);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                line-height: 1.2;
+            }
+
+            .stat-label {
+                font-size: 0.8rem;
+                font-weight: 600;
+                color: rgba(255, 255, 255, 0.5);
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+            }
+        }
+
+        .stat-divider {
+            width: 1px;
+            height: 48px;
+            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.15), transparent);
+        }
+    }
+
+    // ══════════════════════════════════════
+    // WHAT I DO CARDS
+    // ══════════════════════════════════════
+    .what-i-do {
+        margin-top: 4rem;
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+
+            // Scroll reveal
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s,
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+
+            &.revealed {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .do-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 2.2rem 1.8rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
+            &:hover {
+                transform: translateY(-8px);
+                border-color: rgba(0, 255, 127, 0.2);
+                box-shadow: 0 12px 40px rgba(0, 255, 127, 0.1),
+                    0 4px 20px rgba(0, 0, 0, 0.4);
+            }
+
+            .card-icon {
+                width: 56px;
+                height: 56px;
+                border-radius: 16px;
+                background: rgba(0, 255, 127, 0.08);
+                border: 1px solid rgba(0, 255, 127, 0.15);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 1.2rem;
+                transition: all 0.3s ease;
+
+                i {
+                    font-size: 1.4rem;
+                    color: $color-primary;
+                }
+            }
+
+            &:hover .card-icon {
+                background: rgba(0, 255, 127, 0.15);
+                box-shadow: 0 0 20px rgba(0, 255, 127, 0.15);
+            }
+
+            h4 {
+                font-size: 1.05rem;
+                font-weight: 700;
+                color: #fff;
+                margin-bottom: 0.7rem;
+                letter-spacing: 0.3px;
+            }
+
+            p {
+                font-size: 0.88rem;
+                font-weight: 400;
+                color: rgba(255, 255, 255, 0.55);
+                line-height: 1.7;
+            }
+        }
+    }
+
+    // ── Sub Headings ──
+    .sub-heading {
+        text-align: center;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.85);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 2rem;
+
+        // Scroll reveal
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s,
+            transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+
+        &.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    // ══════════════════════════════════════
+    // RESUME BUTTON
+    // ══════════════════════════════════════
+    .resume-section {
+        text-align: center;
+        margin-top: 3.5rem;
+
+        // Scroll reveal
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.4s,
+            transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.4s;
+
+        &.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .btn-resume {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.9rem 2.4rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-decoration: none;
+            color: $color-primary;
+            background: transparent;
+            border: 1px solid $color-primary;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+            z-index: 1;
+
+            &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: $color-primary;
+                z-index: -1;
+                border-radius: 50px;
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+            }
+
+            &:hover {
+                color: #000;
+                box-shadow: 0 0 28px rgba(0, 255, 127, 0.35);
+                transform: scale(1.04);
+
+                &::before {
+                    transform: scaleX(1);
+                }
+            }
+
+            i {
+                font-size: 1rem;
+                transition: transform 0.3s ease;
+            }
+
+            &:hover i {
+                transform: translateY(2px);
+            }
+        }
+    }
+
+    // ══════════════════════════════════════
+    // TECH STACK ICONS
+    // ══════════════════════════════════════
+    .tech-stack {
+        margin-top: 3.5rem;
+
+        // Scroll reveal
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.5s,
+            transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
+
+        &.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tech-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+        }
+
+        .tech-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: default;
+
+            i {
+                font-size: 1.4rem;
+                color: rgba(255, 255, 255, 0.5);
+                transition: all 0.35s ease;
+            }
+
+            &:hover {
+                transform: translateY(-5px) scale(1.1);
+                background: rgba(0, 255, 127, 0.08);
+                border-color: rgba(0, 255, 127, 0.25);
+                box-shadow: 0 8px 24px rgba(0, 255, 127, 0.12);
+
+                i {
+                    color: $color-primary;
+                }
+            }
+        }
+    }
 }
 
 // ── Keyframes ──
@@ -214,6 +504,33 @@
                 line-height: 1.85;
             }
         }
+
+        .stats-row {
+            gap: 1.5rem;
+            padding: 1.5rem 1.5rem;
+
+            .stat-item .stat-number {
+                font-size: 1.8rem;
+            }
+
+            .stat-item .stat-label {
+                font-size: 0.7rem;
+            }
+        }
+
+        .what-i-do .cards-grid {
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+        }
+
+        .tech-stack .tech-icon {
+            width: 46px;
+            height: 46px;
+
+            i {
+                font-size: 1.2rem;
+            }
+        }
     }
 }
 
@@ -226,6 +543,47 @@
 
             .card-body .text-block p {
                 font-size: 0.95rem;
+            }
+        }
+
+        .stats-row {
+            flex-direction: column;
+            gap: 1.2rem;
+            padding: 1.5rem;
+
+            .stat-divider {
+                width: 60px;
+                height: 1px;
+                background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15), transparent);
+            }
+
+            .stat-item .stat-number {
+                font-size: 1.6rem;
+            }
+        }
+
+        .sub-heading {
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+
+        .resume-section .btn-resume {
+            padding: 0.8rem 2rem;
+            font-size: 0.82rem;
+        }
+
+        .tech-stack {
+            .tech-icons {
+                gap: 0.8rem;
+            }
+
+            .tech-icon {
+                width: 42px;
+                height: 42px;
+
+                i {
+                    font-size: 1.1rem;
+                }
             }
         }
     }
