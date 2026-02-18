@@ -30,7 +30,7 @@
             border-radius: 50%;
             filter: blur(100px);
             opacity: 0.25;
-            animation: float 10s infinite ease-in-out;
+            animation: float 10s infinite ease-in-out, bgGlowBreath 6s ease-in-out infinite;
         }
 
         .shape-1 {
@@ -78,8 +78,6 @@
         .content {
             max-width: 620px;
             z-index: 2;
-            animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            opacity: 0;
         }
 
         // ── Collaboration Badge ──
@@ -100,6 +98,9 @@
             text-transform: uppercase;
             margin-bottom: 1.8rem;
             box-shadow: 0 0 20px rgba(0, 255, 127, 0.08);
+            // Staggered fade-in
+            opacity: 0;
+            animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
 
             .badge-dot {
                 width: 8px;
@@ -119,12 +120,18 @@
             margin-bottom: 0.8rem;
             color: #fff;
             letter-spacing: -0.5px;
+            // Staggered fade-in
+            opacity: 0;
+            animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
 
             .name-gradient {
-                background: linear-gradient(135deg, $color-primary, #00bfff);
+                background: linear-gradient(135deg, $color-primary, #00bfff, $color-primary);
+                background-size: 200% auto;
                 -webkit-background-clip: text;
                 background-clip: text;
                 -webkit-text-fill-color: transparent;
+                animation: nameGradientShift 4s ease-in-out infinite;
+                filter: drop-shadow(0 0 18px rgba(0, 255, 127, 0.35)) drop-shadow(0 0 40px rgba(0, 191, 255, 0.2));
             }
         }
 
@@ -136,6 +143,9 @@
             margin-bottom: 1.5rem;
             min-height: 2rem;
             letter-spacing: 0.5px;
+            // Staggered fade-in
+            opacity: 0;
+            animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
 
             .typed-role {
                 color: $color-primary;
@@ -143,10 +153,13 @@
             }
 
             .cursor {
+                display: inline-block;
                 color: $color-primary;
                 font-weight: 300;
-                animation: blink 0.8s step-end infinite;
+                animation: cursorGlow 1s ease-in-out infinite;
                 margin-left: 2px;
+                text-shadow: 0 0 8px rgba(0, 255, 127, 0.7),
+                    0 0 20px rgba(0, 255, 127, 0.4);
             }
         }
 
@@ -158,6 +171,9 @@
             line-height: 1.85;
             margin-bottom: 2rem;
             max-width: 540px;
+            // Staggered fade-in
+            opacity: 0;
+            animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
         }
 
         // ── Tech Pills (same style as Portfolio tags) ──
@@ -166,6 +182,9 @@
             flex-wrap: wrap;
             gap: 0.5rem;
             margin-bottom: 2.5rem;
+            // Staggered fade-in
+            opacity: 0;
+            animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
 
             .pill {
                 font-size: 0.75rem;
@@ -177,13 +196,17 @@
                 border: 1px solid rgba(0, 255, 127, 0.15);
                 letter-spacing: 0.5px;
                 text-transform: uppercase;
-                transition: all 0.3s ease;
+                transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
                 cursor: default;
 
                 &:hover {
-                    background: rgba(0, 255, 127, 0.15);
-                    border-color: rgba(0, 255, 127, 0.3);
-                    box-shadow: 0 0 12px rgba(0, 255, 127, 0.1);
+                    background: rgba(0, 255, 127, 0.18);
+                    border-color: rgba(0, 255, 127, 0.45);
+                    box-shadow: 0 0 16px rgba(0, 255, 127, 0.25),
+                        0 0 30px rgba(0, 255, 127, 0.1);
+                    transform: translateY(-3px) scale(1.06);
+                    color: #fff;
+                    text-shadow: 0 0 8px rgba(0, 255, 127, 0.5);
                 }
             }
         }
@@ -193,6 +216,9 @@
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
+            // Staggered fade-in
+            opacity: 0;
+            animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.85s forwards;
 
             .btn-primary,
             .btn-outline {
@@ -300,6 +326,8 @@
                 box-shadow: none;
                 border-radius: 0;
                 overflow: visible;
+                // Floating animation on profile image
+                animation: profileFloat 5s ease-in-out infinite;
 
                 img {
                     height: 100%;
@@ -337,6 +365,21 @@
     }
 }
 
+// Animated background glow – shapes breathe in and out
+@keyframes bgGlowBreath {
+
+    0%,
+    100% {
+        opacity: 0.2;
+        filter: blur(100px);
+    }
+
+    50% {
+        opacity: 0.4;
+        filter: blur(120px);
+    }
+}
+
 @keyframes glowPulse {
 
     0%,
@@ -347,19 +390,24 @@
 
     50% {
         opacity: 1;
-        transform: translateX(-50%) scale(1.1);
+        transform: translateX(-50%) scale(1.15);
     }
 }
 
-@keyframes blink {
+// Typing cursor glow animation
+@keyframes cursorGlow {
 
     0%,
     100% {
         opacity: 1;
+        text-shadow: 0 0 8px rgba(0, 255, 127, 0.7),
+            0 0 20px rgba(0, 255, 127, 0.4);
     }
 
     50% {
         opacity: 0;
+        text-shadow: 0 0 2px rgba(0, 255, 127, 0.2),
+            0 0 6px rgba(0, 255, 127, 0.1);
     }
 }
 
@@ -385,6 +433,36 @@
 
     to {
         opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Name gradient shimmer
+@keyframes nameGradientShift {
+    0% {
+        background-position: 0% center;
+    }
+
+    50% {
+        background-position: 200% center;
+    }
+
+    100% {
+        background-position: 0% center;
+    }
+}
+
+// Floating animation for profile image
+@keyframes profileFloat {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+    100% {
         transform: translateY(0);
     }
 }
