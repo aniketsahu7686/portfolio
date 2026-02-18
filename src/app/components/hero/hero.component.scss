@@ -61,7 +61,9 @@
         }
     }
 
-    // ── Left Side: Text Content ──
+    // ══════════════════════════════════════
+    // LEFT SIDE
+    // ══════════════════════════════════════
     .hero-left {
         flex: 1;
         background: transparent;
@@ -74,78 +76,187 @@
         z-index: 1;
 
         .content {
-            max-width: 600px;
+            max-width: 620px;
             z-index: 2;
+            animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
         }
 
-        .greeting {
-            font-size: 1.2rem;
-            font-weight: 500;
+        // ── Collaboration Badge ──
+        .collab-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.45rem 1.2rem;
+            border-radius: 50px;
+            background: rgba(0, 255, 127, 0.06);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 255, 127, 0.2);
             color: $color-primary;
-            display: block;
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        h1 {
-            font-size: 5rem;
-            font-weight: 900;
-            line-height: 1;
-            margin-bottom: 0.5rem;
-            color: #fff;
-            letter-spacing: -1px;
-            background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .role {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: $color-text-dim;
-            margin-bottom: 0;
+            font-size: 0.8rem;
+            font-weight: 600;
             letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 0 20px rgba(0, 255, 127, 0.08);
+
+            .badge-dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: $color-primary;
+                box-shadow: 0 0 8px rgba(0, 255, 127, 0.6);
+                animation: dotPulse 2s ease-in-out infinite;
+            }
         }
 
-        // ── Social Icons ──
-        .social-icons {
-            position: absolute;
-            bottom: 3rem;
-            left: 6rem;
-            display: flex;
-            gap: 1rem;
+        // ── Main Heading ──
+        h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 0.8rem;
+            color: #fff;
+            letter-spacing: -0.5px;
 
-            .social-icon {
-                width: 48px;
-                height: 48px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: rgba(255, 255, 255, 0.05);
-                border: 1px solid rgba(255, 255, 255, 0.1);
-                border-radius: 12px;
-                color: $color-text-dim;
-                transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            .name-gradient {
+                background: linear-gradient(135deg, $color-primary, #00bfff);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+
+        // ── Typewriter ──
+        .typewriter-wrapper {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: $color-text-dim;
+            margin-bottom: 1.5rem;
+            min-height: 2rem;
+            letter-spacing: 0.5px;
+
+            .typed-role {
+                color: $color-primary;
+                font-weight: 600;
+            }
+
+            .cursor {
+                color: $color-primary;
+                font-weight: 300;
+                animation: blink 0.8s step-end infinite;
+                margin-left: 2px;
+            }
+        }
+
+        // ── Description ──
+        .description {
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.85;
+            margin-bottom: 2rem;
+            max-width: 540px;
+        }
+
+        // ── Tech Pills (same style as Portfolio tags) ──
+        .tech-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2.5rem;
+
+            .pill {
+                font-size: 0.75rem;
+                font-weight: 600;
+                padding: 0.3rem 0.85rem;
+                border-radius: 50px;
+                background: rgba(0, 255, 127, 0.08);
+                color: $color-primary;
+                border: 1px solid rgba(0, 255, 127, 0.15);
+                letter-spacing: 0.5px;
+                text-transform: uppercase;
+                transition: all 0.3s ease;
+                cursor: default;
 
                 &:hover {
-                    color: $color-primary;
-                    background: rgba(0, 255, 127, 0.08);
-                    border-color: rgba(0, 255, 127, 0.25);
-                    transform: translateY(-4px);
-                    box-shadow: 0 8px 20px rgba(0, 255, 127, 0.15);
+                    background: rgba(0, 255, 127, 0.15);
+                    border-color: rgba(0, 255, 127, 0.3);
+                    box-shadow: 0 0 12px rgba(0, 255, 127, 0.1);
+                }
+            }
+        }
+
+        // ── Buttons (same style as Contact submit btn) ──
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+
+            .btn-primary,
+            .btn-outline {
+                position: relative;
+                padding: 0.85rem 2rem;
+                border-radius: 50px;
+                font-weight: 700;
+                font-size: 0.9rem;
+                cursor: pointer;
+                overflow: hidden;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                text-decoration: none;
+                display: inline-block;
+                text-align: center;
+                transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+                z-index: 1;
+            }
+
+            .btn-primary {
+                background: $color-primary;
+                color: #000;
+                border: 1px solid $color-primary;
+
+                &:hover {
+                    box-shadow: 0 0 25px rgba(0, 255, 127, 0.4);
+                    transform: scale(1.03);
+                }
+            }
+
+            .btn-outline {
+                background: transparent;
+                color: $color-primary;
+                border: 1px solid $color-primary;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 0%;
+                    height: 100%;
+                    background: $color-primary;
+                    z-index: -1;
+                    transition: width 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+                    border-radius: 50px;
                 }
 
-                svg {
-                    width: 22px;
-                    height: 22px;
+                &:hover {
+                    color: #000;
+                    box-shadow: 0 0 25px rgba(0, 255, 127, 0.4);
+                    transform: scale(1.03);
+
+                    &::before {
+                        width: 100%;
+                    }
                 }
             }
         }
     }
 
-    // ── Right Side: Profile Image ──
+    // ══════════════════════════════════════
+    // RIGHT SIDE — Profile Image (unchanged position)
+    // ══════════════════════════════════════
     .hero-right {
         flex: 1;
         background: transparent;
@@ -163,6 +274,8 @@
             justify-content: center;
             align-items: flex-end;
             position: relative;
+            animation: heroFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+            opacity: 0;
 
             // ── Glow Effect ──
             .image-glow {
@@ -207,7 +320,9 @@
     }
 }
 
-// ── Keyframes ──
+// ══════════════════════════════════════
+// KEYFRAMES
+// ══════════════════════════════════════
 @keyframes float {
     0% {
         transform: translate(0, 0);
@@ -236,7 +351,47 @@
     }
 }
 
-// ── Responsive ──
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes dotPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 8px rgba(0, 255, 127, 0.6);
+    }
+
+    50% {
+        opacity: 0.5;
+        box-shadow: 0 0 16px rgba(0, 255, 127, 0.9);
+    }
+}
+
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// ══════════════════════════════════════
+// RESPONSIVE
+// ══════════════════════════════════════
 @media (max-width: 900px) {
     .hero {
         .hero-left {
@@ -252,20 +407,28 @@
             }
 
             h1 {
-                font-size: 3.5rem;
+                font-size: 3rem;
             }
 
-            .social-icons {
-                position: relative;
-                bottom: auto;
-                left: auto;
-                margin-top: 2rem;
+            .typewriter-wrapper {
+                font-size: 1.1rem;
+            }
+
+            .description {
+                font-size: 0.95rem;
+            }
+
+            .tech-pills {
+                justify-content: center;
+            }
+
+            .hero-buttons {
                 justify-content: center;
             }
         }
 
         .hero-right {
-            flex: 0.8;
+            flex: 0.7;
 
             .profile-image-container .image-glow {
                 width: 220px;
@@ -281,15 +444,39 @@
             padding: 1.5rem;
 
             h1 {
-                font-size: 2.8rem;
+                font-size: 2.4rem;
             }
 
-            .greeting {
-                font-size: 1rem;
+            .collab-badge {
+                font-size: 0.7rem;
+                padding: 0.35rem 1rem;
+                margin-bottom: 1.2rem;
             }
 
-            .role {
-                font-size: 1rem;
+            .typewriter-wrapper {
+                font-size: 0.95rem;
+            }
+
+            .description {
+                font-size: 0.9rem;
+                line-height: 1.7;
+            }
+
+            .tech-pills .pill {
+                font-size: 0.7rem;
+                padding: 0.25rem 0.7rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+
+                .btn-primary,
+                .btn-outline {
+                    width: 100%;
+                    padding: 0.75rem 1.5rem;
+                    font-size: 0.8rem;
+                }
             }
         }
 
