@@ -12,79 +12,155 @@
             <div class="title-underline"></div>
         </h2>
 
-        <div class="contact-card">
-            <!-- Card Title -->
-            <div class="card-header">
-                <i class="fa-solid fa-envelope"></i>
-                <h3>Send a Message</h3>
+        <div class="contact-grid">
+            <!-- ════════════════════════════ -->
+            <!-- LEFT COLUMN -->
+            <!-- ════════════════════════════ -->
+            <div class="left-column">
+
+                <!-- Quick Contact Card -->
+                <div class="info-card">
+                    <div class="card-header">
+                        <i class="fa-solid fa-address-book"></i>
+                        <h3>Quick Contact</h3>
+                    </div>
+
+                    <div class="contact-items">
+                        <a href="mailto:aniketsahu1909@gmail.com" class="contact-item">
+                            <div class="item-icon">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div class="item-info">
+                                <span class="item-title">Email</span>
+                                <span class="item-desc">aniketsahu1909&#64;gmail.com</span>
+                            </div>
+                            <i class="fa-solid fa-arrow-right item-arrow"></i>
+                        </a>
+
+                        <a href="https://linkedin.com/in/aniketsahu7686" target="_blank" rel="noopener"
+                            class="contact-item">
+                            <div class="item-icon">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </div>
+                            <div class="item-info">
+                                <span class="item-title">LinkedIn</span>
+                                <span class="item-desc">Connect with me</span>
+                            </div>
+                            <i class="fa-solid fa-arrow-right item-arrow"></i>
+                        </a>
+
+                        <a href="https://github.com/aniketsahu7686" target="_blank" rel="noopener" class="contact-item">
+                            <div class="item-icon">
+                                <i class="fa-brands fa-github"></i>
+                            </div>
+                            <div class="item-info">
+                                <span class="item-title">GitHub</span>
+                                <span class="item-desc">View my code</span>
+                            </div>
+                            <i class="fa-solid fa-arrow-right item-arrow"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Currently Available Card -->
+                <div class="info-card available-card">
+                    <div class="card-header">
+                        <span class="status-dot"></span>
+                        <h3>Currently Available</h3>
+                    </div>
+                    <div class="available-text">
+                        <p>I am currently open to <strong>full-time opportunities</strong> — Java Full Stack, DevOps,
+                            and AWS Cloud roles.</p>
+                        <p>I am also available for <strong>freelance</strong> and <strong>collaboration</strong>
+                            projects.</p>
+                        <p class="response-time">
+                            <i class="fa-solid fa-clock"></i>
+                            Response time is typically within 24 hours.
+                        </p>
+                    </div>
+                </div>
+
             </div>
 
-            <form class="contact-form" #contactForm="ngForm" (ngSubmit)="sendEmail(contactForm)">
-                <!-- Row 1: Name + Email side by side -->
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" [(ngModel)]="form.name" name="name" placeholder="Your full name"
-                            required minlength="3" maxlength="50" pattern="^[a-zA-Z\s]+$" #nameField="ngModel"
-                            [class.error]="nameField.invalid && submitted" (input)="onInput()">
-                        <small class="error-msg" *ngIf="nameField.invalid && submitted">
-                            <span *ngIf="nameField.errors?.['required']">Name is required</span>
-                            <span *ngIf="nameField.errors?.['minlength']">Name must be at least 3 characters</span>
-                            <span *ngIf="nameField.errors?.['maxlength']">Name cannot exceed 50 characters</span>
-                            <span *ngIf="nameField.errors?.['pattern']">Only letters and spaces allowed</span>
-                        </small>
+            <!-- ════════════════════════════ -->
+            <!-- RIGHT COLUMN – Contact Form -->
+            <!-- ════════════════════════════ -->
+            <div class="right-column">
+                <div class="form-card">
+                    <div class="card-header">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <h3>Send a Message</h3>
                     </div>
 
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" [(ngModel)]="form.email" name="email"
-                            placeholder="you@example.com" required email #emailField="ngModel"
-                            [class.error]="emailField.invalid && submitted" (input)="onInput()">
-                        <small class="error-msg" *ngIf="emailField.invalid && submitted">
-                            <span *ngIf="emailField.errors?.['required']">Email is required</span>
-                            <span *ngIf="emailField.errors?.['email']">Please enter a valid email</span>
-                        </small>
-                    </div>
+                    <form class="contact-form" #contactForm="ngForm" (ngSubmit)="sendEmail(contactForm)">
+                        <!-- Row 1: Name + Email side by side -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" [(ngModel)]="form.name" name="name"
+                                    placeholder="Your full name" required minlength="3" maxlength="50"
+                                    pattern="^[a-zA-Z\s]+$" #nameField="ngModel"
+                                    [class.error]="nameField.invalid && submitted" (input)="onInput()">
+                                <small class="error-msg" *ngIf="nameField.invalid && submitted">
+                                    <span *ngIf="nameField.errors?.['required']">Name is required</span>
+                                    <span *ngIf="nameField.errors?.['minlength']">At least 3 characters</span>
+                                    <span *ngIf="nameField.errors?.['maxlength']">Max 50 characters</span>
+                                    <span *ngIf="nameField.errors?.['pattern']">Letters and spaces only</span>
+                                </small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" [(ngModel)]="form.email" name="email"
+                                    placeholder="you@example.com" required email #emailField="ngModel"
+                                    [class.error]="emailField.invalid && submitted" (input)="onInput()">
+                                <small class="error-msg" *ngIf="emailField.invalid && submitted">
+                                    <span *ngIf="emailField.errors?.['required']">Email is required</span>
+                                    <span *ngIf="emailField.errors?.['email']">Enter a valid email</span>
+                                </small>
+                            </div>
+                        </div>
+
+                        <!-- Row 2: Phone full width -->
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" [(ngModel)]="form.phone" name="phone" placeholder="9876543210"
+                                required pattern="^[0-9]{10}$" maxlength="10" #phoneField="ngModel"
+                                [class.error]="phoneField.invalid && submitted" (input)="onInput()">
+                            <small class="error-msg" *ngIf="phoneField.invalid && submitted">
+                                <span *ngIf="phoneField.errors?.['required']">Phone number is required</span>
+                                <span *ngIf="phoneField.errors?.['pattern']">Enter exactly 10 digits</span>
+                            </small>
+                        </div>
+
+                        <!-- Row 3: Message full width -->
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" [(ngModel)]="form.message" name="message" rows="5"
+                                placeholder="Tell me about your project or idea..." required minlength="10"
+                                maxlength="500" #messageField="ngModel"
+                                [class.error]="messageField.invalid && submitted" (input)="onInput()"></textarea>
+                            <small class="error-msg" *ngIf="messageField.invalid && submitted">
+                                <span *ngIf="messageField.errors?.['required']">Message is required</span>
+                                <span *ngIf="messageField.errors?.['minlength']">At least 10 characters</span>
+                                <span *ngIf="messageField.errors?.['maxlength']">Max 500 characters</span>
+                            </small>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn-submit" [disabled]="loading">
+                            <i class="fa-solid fa-paper-plane" *ngIf="!loading"></i>
+                            <span class="btn-text">{{ loading ? 'Sending...' : 'Send Message' }}</span>
+                        </button>
+
+                        <!-- Helper text -->
+                        <p class="helper-text">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            Your information is safe and will not be shared.
+                        </p>
+                    </form>
                 </div>
-
-                <!-- Row 2: Phone full width -->
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" [(ngModel)]="form.phone" name="phone" placeholder="9876543210" required
-                        pattern="^[0-9]{10}$" maxlength="10" #phoneField="ngModel"
-                        [class.error]="phoneField.invalid && submitted" (input)="onInput()">
-                    <small class="error-msg" *ngIf="phoneField.invalid && submitted">
-                        <span *ngIf="phoneField.errors?.['required']">Phone number is required</span>
-                        <span *ngIf="phoneField.errors?.['pattern']">Enter exactly 10 digits</span>
-                    </small>
-                </div>
-
-                <!-- Row 3: Message full width -->
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" [(ngModel)]="form.message" name="message" rows="6"
-                        placeholder="Tell me about your project or idea..." required minlength="10" maxlength="500"
-                        #messageField="ngModel" [class.error]="messageField.invalid && submitted"
-                        (input)="onInput()"></textarea>
-                    <small class="error-msg" *ngIf="messageField.invalid && submitted">
-                        <span *ngIf="messageField.errors?.['required']">Message is required</span>
-                        <span *ngIf="messageField.errors?.['minlength']">Message must be at least 10 characters</span>
-                        <span *ngIf="messageField.errors?.['maxlength']">Message cannot exceed 500 characters</span>
-                    </small>
-                </div>
-
-                <!-- Submit Button -->
-                <button type="submit" class="btn-submit" [disabled]="loading">
-                    <i class="fa-solid fa-paper-plane" *ngIf="!loading"></i>
-                    <span class="btn-text">{{ loading ? 'Sending...' : 'Send Message' }}</span>
-                </button>
-
-                <!-- Helper text -->
-                <p class="helper-text">
-                    <i class="fa-solid fa-clock"></i>
-                    I will respond as soon as possible.
-                </p>
-            </form>
+            </div>
         </div>
     </div>
 </section>
