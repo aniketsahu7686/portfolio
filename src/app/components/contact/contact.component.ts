@@ -22,10 +22,22 @@ export class ContactComponent {
     submitted = false;
     loading = false;
 
+    onInput() {
+        this.submitted = false;
+    }
+
     sendEmail(contactForm: NgForm) {
         this.submitted = true;
 
         if (contactForm.invalid) {
+            // Scroll to first invalid field smoothly
+            setTimeout(() => {
+                const firstError = document.querySelector('.form-group input.error, .form-group textarea.error');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    (firstError as HTMLElement).focus();
+                }
+            });
             return;
         }
 
