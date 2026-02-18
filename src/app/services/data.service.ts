@@ -60,7 +60,6 @@ export class DataService {
         { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg', category: 'DEVOPS & CLOUD' },
         { name: 'Jenkins', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg', category: 'DEVOPS & CLOUD' },
         { name: 'SonarQube', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sonarqube/sonarqube-original.svg', category: 'DEVOPS & CLOUD' },
-        { name: 'Nexus', icon: 'https://assets.gcore.pro/blog_containerizing_prod/uploads/2023/10/nexus-logo-visual-edit.png', category: 'DEVOPS & CLOUD' }, // Nexus doesn't have a standard devicon, using a fallback or I can use a generic package icon if this fails.
         { name: 'GitHub Actions', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg', category: 'DEVOPS & CLOUD' },
         { name: 'Linux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg', category: 'DEVOPS & CLOUD' },
         { name: 'Maven', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg', category: 'DEVOPS & CLOUD' },
