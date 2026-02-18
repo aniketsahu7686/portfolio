@@ -2,7 +2,7 @@
 
 .contact-section {
     padding: 8rem 0;
-    background-color: #0b0b0b; // Deep black base
+    background-color: #0b0b0b;
     color: $color-text-light;
     min-height: 100vh;
     display: flex;
@@ -60,184 +60,259 @@
         position: relative;
         z-index: 1;
         width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 2rem;
     }
 
+    // ── Section Title (unified with other sections) ──
     .section-title {
-        // Overriding global utility for this specific section look
-        margin-bottom: 3rem;
+        text-align: center;
+        margin-bottom: 4rem;
+        color: $color-text-light;
+        border: none;
 
         span {
-            border: none;
-            padding: 0;
+            display: inline-block;
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 4px;
             background: linear-gradient(90deg, #fff, $color-text-dim);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-weight: 800;
+            border: none;
+            padding: 0;
+        }
+
+        .title-underline {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, $color-primary, #00bfff);
+            margin: 1rem auto 0;
+            border-radius: 2px;
         }
     }
 
-    .glass-card {
-        max-width: 600px;
+    // ══════════════════════════════════════
+    // CONTACT CARD
+    // ══════════════════════════════════════
+    .contact-card {
+        max-width: 720px;
         margin: 0 auto;
-        padding: 3rem 2rem;
-        border-radius: 20px;
+        padding: 3rem 3.5rem;
+        border-radius: 24px;
         background: rgba(255, 255, 255, 0.03);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+            box-shadow 0.4s ease;
 
         &:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 40px 0 rgba(0, 255, 127, 0.1); // Slight green glow on hover
+            box-shadow: 0 16px 48px rgba(0, 255, 127, 0.08),
+                0 8px 32px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+    }
+
+    // ── Card Header ──
+    .card-header {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        margin-bottom: 2.5rem;
+
+        i {
+            font-size: 1.3rem;
+            color: $color-primary;
+            filter: drop-shadow(0 0 6px rgba(0, 255, 127, 0.3));
         }
 
-        .card-content {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.5px;
         }
+    }
 
-        .subtitle {
-            text-align: center;
-            color: $color-text-dim;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
+    // ══════════════════════════════════════
+    // FORM
+    // ══════════════════════════════════════
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.8rem;
 
-        .contact-form {
-            display: flex;
-            flex-direction: column;
+        // ── 2-column row ──
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
+        }
 
-            .form-group {
-                display: flex;
-                flex-direction: column;
-                gap: 0.5rem;
+        // ── Form Group ──
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
 
-                label {
-                    font-size: 0.9rem;
-                    font-weight: 600;
-                    color: $color-text-dim;
-                    margin-left: 0.5rem;
-                    text-transform: uppercase;
-                    letter-spacing: 1px;
-                }
-
-                input,
-                textarea {
-                    width: 100%;
-                    padding: 1rem 1.5rem;
-                    background: rgba(0, 0, 0, 0.2);
-                    border: 1px solid rgba(255, 255, 255, 0.1);
-                    border-radius: 12px;
-                    color: #fff;
-                    font-family: inherit;
-                    font-size: 1rem;
-                    transition: all 0.3s ease;
-
-                    &:focus {
-                        outline: none;
-                        border-color: $color-primary;
-                        background: rgba(0, 255, 127, 0.05);
-                        box-shadow: 0 0 15px rgba(0, 255, 127, 0.2);
-                    }
-
-                    &.error {
-                        border-color: #ff4d4d;
-                        background: rgba(255, 77, 77, 0.05);
-                    }
-
-                    &::placeholder {
-                        color: rgba(255, 255, 255, 0.3);
-                    }
-                }
-
-                textarea {
-                    resize: vertical;
-                    min-height: 120px;
-                }
-
-                .error-msg {
-                    color: #ff4d4d;
-                    font-size: 0.85rem;
-                    margin-left: 0.5rem;
-                    animation: fadeIn 0.3s ease;
-                }
-            }
-
-            .success-msg {
-                color: #00ff7f;
-                font-size: 0.95rem;
-                text-align: center;
-                animation: fadeIn 0.3s ease;
-            }
-
-            >.error-msg {
-                color: #ff4d4d;
-                font-size: 0.95rem;
-                text-align: center;
-                animation: fadeIn 0.3s ease;
-            }
-
-            .btn-submit {
-                position: relative;
-                padding: 1rem 2rem;
-                background: transparent;
-                color: $color-primary;
-                border: 1px solid $color-primary;
-                border-radius: 50px;
-                font-weight: 700;
-                font-size: 1rem;
-                cursor: pointer;
-                overflow: hidden;
-                transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-                margin-top: 1.5rem;
+            label {
+                font-size: 0.78rem;
+                font-weight: 600;
+                color: rgba(255, 255, 255, 0.5);
                 text-transform: uppercase;
-                letter-spacing: 1.5px;
-                z-index: 1;
+                letter-spacing: 1.2px;
+                margin-left: 0.2rem;
+            }
+
+            input,
+            textarea {
+                width: 100%;
+                padding: 1rem 1.4rem;
+                background: rgba(255, 255, 255, 0.04);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 14px;
+                color: #fff;
+                font-family: inherit;
+                font-size: 0.95rem;
+                transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+
+                &:focus {
+                    outline: none;
+                    border-color: $color-primary;
+                    background: rgba(0, 255, 127, 0.04);
+                    box-shadow: 0 0 0 3px rgba(0, 255, 127, 0.08),
+                        0 0 20px rgba(0, 255, 127, 0.12);
+                }
+
+                &.error {
+                    border-color: #ff4d4d;
+                    background: rgba(255, 77, 77, 0.04);
+                    box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.08);
+                }
+
+                &::placeholder {
+                    color: rgba(255, 255, 255, 0.25);
+                    font-weight: 400;
+                }
+            }
+
+            textarea {
+                resize: vertical;
+                min-height: 150px;
+            }
+
+            .error-msg {
+                color: #ff4d4d;
+                font-size: 0.8rem;
+                margin-left: 0.2rem;
+                animation: fadeIn 0.3s ease;
+            }
+        }
+
+        // ── Submit Button ──
+        .btn-submit {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            width: 100%;
+            padding: 1.1rem 2rem;
+            background: transparent;
+            color: $color-primary;
+            border: 1px solid $color-primary;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            z-index: 1;
+
+            &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: $color-primary;
+                z-index: -1;
+                border-radius: 14px;
+                transform: scaleY(0);
+                transform-origin: bottom;
+                transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+            }
+
+            i {
+                font-size: 0.9rem;
+                transition: transform 0.3s ease;
+            }
+
+            &:hover {
+                color: #000;
+                box-shadow: 0 0 28px rgba(0, 255, 127, 0.35);
 
                 &::before {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 0%;
-                    height: 100%;
-                    background: $color-primary;
-                    z-index: -1;
-                    transition: width 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+                    transform: scaleY(1);
                 }
 
-                &:hover {
-                    color: #000;
-                    box-shadow: 0 0 20px rgba(0, 255, 127, 0.4);
-                    transform: scale(1.02);
-
-                    &::before {
-                        width: 100%;
-                    }
-                }
-
-                &:active {
-                    transform: scale(0.98);
-                }
-
-                &:disabled {
-                    opacity: 0.4;
-                    cursor: not-allowed;
-                    pointer-events: none;
+                i {
+                    transform: translateX(3px) translateY(-2px);
                 }
             }
+
+            &:active {
+                transform: scale(0.98);
+            }
+
+            &:disabled {
+                opacity: 0.35;
+                cursor: not-allowed;
+                pointer-events: none;
+            }
+        }
+
+        // ── Helper Text ──
+        .helper-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.35);
+            margin-top: -0.5rem;
+
+            i {
+                font-size: 0.75rem;
+                color: rgba(0, 255, 127, 0.4);
+            }
+        }
+
+        // ── Toast Messages ──
+        .success-msg {
+            color: #00ff7f;
+            font-size: 0.95rem;
+            text-align: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        >.error-msg {
+            color: #ff4d4d;
+            font-size: 0.95rem;
+            text-align: center;
+            animation: fadeIn 0.3s ease;
         }
     }
 }
 
+// ── Keyframes ──
 @keyframes float {
     0% {
         transform: translate(0, 0);
@@ -249,5 +324,78 @@
 
     100% {
         transform: translate(0, 0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// ══════════════════════════════════════
+// RESPONSIVE
+// ══════════════════════════════════════
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 5rem 0;
+
+        .section-title span {
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+        }
+
+        .contact-card {
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+        }
+
+        .contact-form .form-row {
+            grid-template-columns: 1fr;
+            gap: 1.8rem;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-section {
+        padding: 4rem 0;
+
+        .contact-card {
+            padding: 2rem 1.5rem;
+            border-radius: 18px;
+        }
+
+        .card-header {
+            margin-bottom: 2rem;
+
+            h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        .contact-form {
+            gap: 1.5rem;
+
+            .form-group {
+
+                input,
+                textarea {
+                    padding: 0.9rem 1.2rem;
+                    font-size: 0.9rem;
+                }
+            }
+
+            .btn-submit {
+                padding: 1rem 1.5rem;
+                font-size: 0.85rem;
+            }
+        }
     }
 }
