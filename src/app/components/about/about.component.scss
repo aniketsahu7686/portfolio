@@ -340,10 +340,13 @@
     }
 
     // ══════════════════════════════════════
-    // RESUME BUTTON
+    // RESUME & CERTIFICATES BUTTONS
     // ══════════════════════════════════════
     .resume-section {
-        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
         margin-top: 3.5rem;
 
         // Scroll reveal
@@ -365,6 +368,7 @@
             border-radius: 50px;
             font-weight: 700;
             font-size: 0.9rem;
+            font-family: inherit;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             text-decoration: none;
@@ -406,6 +410,152 @@
 
             &:hover i {
                 transform: translateY(2px);
+            }
+        }
+    }
+
+    // ── Certificates Popup ──
+    .cert-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        z-index: 1100;
+        animation: fadeIn 0.25s ease;
+    }
+
+    .cert-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1101;
+        background: rgba(18, 18, 18, 0.92);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border: 1px solid rgba(0, 255, 127, 0.2);
+        border-radius: 24px;
+        padding: 2.4rem 2.2rem 2rem;
+        width: min(380px, 90vw);
+        box-shadow: 0 0 60px rgba(0, 255, 127, 0.08),
+            0 20px 50px rgba(0, 0, 0, 0.5);
+        animation: popupSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+        .cert-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+
+            &:hover {
+                background: rgba(255, 77, 77, 0.15);
+                border-color: rgba(255, 77, 77, 0.3);
+                color: #ff4d4d;
+            }
+        }
+
+        .cert-popup-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+
+            i {
+                color: $color-primary;
+                font-size: 1rem;
+                filter: drop-shadow(0 0 6px rgba(0, 255, 127, 0.4));
+            }
+        }
+
+        .cert-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+        }
+
+        .cert-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            padding: 0.95rem 1.2rem;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 255, 127, 0.12);
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+
+            &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: $color-primary;
+                z-index: -1;
+                border-radius: 14px;
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+            }
+
+            i:first-child {
+                font-size: 1.1rem;
+                color: $color-primary;
+                transition: color 0.3s ease;
+            }
+
+            span {
+                flex: 1;
+            }
+
+            .cert-arrow {
+                font-size: 0.8rem;
+                color: rgba(255, 255, 255, 0.3);
+                opacity: 0;
+                transform: translateY(-4px);
+                transition: all 0.3s ease;
+            }
+
+            &:hover {
+                color: #000;
+                border-color: $color-primary;
+                box-shadow: 0 0 20px rgba(0, 255, 127, 0.2);
+                transform: translateY(-2px);
+
+                &::before {
+                    transform: scaleX(1);
+                }
+
+                i:first-child {
+                    color: #000;
+                }
+
+                .cert-arrow {
+                    opacity: 1;
+                    transform: translateY(0);
+                    color: #000;
+                }
             }
         }
     }
@@ -481,7 +631,56 @@
     }
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes popupSlideIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -48%) scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
 // ── Responsive ──
+
+// Small Laptop (769px – 1024px)
+@media (max-width: 1024px) {
+    .about-section {
+        padding: 6rem 0;
+
+        .section-title span {
+            font-size: 2rem;
+            letter-spacing: 3px;
+        }
+
+        .about-card {
+            padding: 2.8rem 2.5rem;
+        }
+
+        .what-i-do .cards-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.3rem;
+        }
+
+        .stats-row {
+            max-width: 100%;
+        }
+    }
+}
+
+// Tablet (481px – 768px)
 @media (max-width: 768px) {
     .about-section {
         padding: 5rem 0;
@@ -534,9 +733,14 @@
     }
 }
 
+// Small Mobile (≤480px)
 @media (max-width: 480px) {
     .about-section {
         padding: 4rem 0;
+
+        .container {
+            padding: 0 1.2rem;
+        }
 
         .about-card {
             padding: 2rem 1.5rem;
@@ -568,6 +772,8 @@
         }
 
         .resume-section .btn-resume {
+            width: 100%;
+            justify-content: center;
             padding: 0.8rem 2rem;
             font-size: 0.82rem;
         }
@@ -585,6 +791,20 @@
                     font-size: 1.1rem;
                 }
             }
+        }
+    }
+}
+
+// Extra Small (≤360px)
+@media (max-width: 360px) {
+    .about-section {
+        .section-title span {
+            font-size: 1.5rem;
+            letter-spacing: 1.5px;
+        }
+
+        .about-card {
+            padding: 1.8rem 1.2rem;
         }
     }
 }

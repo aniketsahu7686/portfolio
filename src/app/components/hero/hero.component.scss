@@ -470,10 +470,33 @@
 // ══════════════════════════════════════
 // RESPONSIVE
 // ══════════════════════════════════════
-@media (max-width: 900px) {
+
+// ── Small Laptop / Large Tablet (769px – 1024px) ──
+@media (max-width: 1024px) {
     .hero {
         .hero-left {
-            padding: 2rem 2rem;
+            padding: 0 2.5rem 0 4rem;
+
+            h1 {
+                font-size: 3.2rem;
+            }
+
+            .description {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+// ── Tablet / Mobile (≤900px) — stack layout ──
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column-reverse;
+        height: auto;
+        min-height: 100vh;
+
+        .hero-left {
+            padding: 2.5rem 2rem 3rem;
             align-items: flex-start;
             justify-content: center;
             text-align: center;
@@ -485,7 +508,7 @@
             }
 
             h1 {
-                font-size: 3rem;
+                font-size: 2.8rem;
             }
 
             .typewriter-wrapper {
@@ -506,28 +529,73 @@
         }
 
         .hero-right {
-            flex: 0.7;
+            flex: 0 0 260px;
+            max-height: 260px;
 
-            .profile-image-container .image-glow {
-                width: 220px;
-                height: 220px;
+            .profile-image-container {
+                height: 260px;
+
+                .image-glow {
+                    width: 200px;
+                    height: 200px;
+                }
+
+                .image-wrapper {
+                    height: 260px;
+                }
             }
         }
     }
 }
 
-@media (max-width: 480px) {
+// ── Mobile (≤768px) ──
+@media (max-width: 768px) {
     .hero {
         .hero-left {
-            padding: 1.5rem;
+            padding: 2rem 1.8rem 2.5rem;
 
             h1 {
-                font-size: 2.4rem;
+                font-size: 2.5rem;
             }
 
             .collab-badge {
-                font-size: 0.7rem;
-                padding: 0.35rem 1rem;
+                font-size: 0.72rem;
+            }
+        }
+
+        .hero-right {
+            flex: 0 0 230px;
+            max-height: 230px;
+
+            .profile-image-container {
+                height: 230px;
+
+                .image-glow {
+                    width: 180px;
+                    height: 180px;
+                }
+
+                .image-wrapper {
+                    height: 230px;
+                }
+            }
+        }
+    }
+}
+
+// ── Small Mobile (≤480px) ──
+@media (max-width: 480px) {
+    .hero {
+        .hero-left {
+            padding: 1.5rem 1.2rem 2rem;
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .collab-badge {
+                font-size: 0.68rem;
+                padding: 0.32rem 0.9rem;
                 margin-bottom: 1.2rem;
             }
 
@@ -536,13 +604,13 @@
             }
 
             .description {
-                font-size: 0.9rem;
+                font-size: 0.88rem;
                 line-height: 1.7;
             }
 
             .tech-pills .pill {
-                font-size: 0.7rem;
-                padding: 0.25rem 0.7rem;
+                font-size: 0.68rem;
+                padding: 0.25rem 0.65rem;
             }
 
             .hero-buttons {
@@ -552,15 +620,57 @@
                 .btn-primary,
                 .btn-outline {
                     width: 100%;
-                    padding: 0.75rem 1.5rem;
+                    padding: 0.78rem 1.5rem;
                     font-size: 0.8rem;
+                    text-align: center;
                 }
             }
         }
 
-        .hero-right .profile-image-container .image-glow {
-            width: 180px;
-            height: 180px;
+        .hero-right {
+            flex: 0 0 200px;
+            max-height: 200px;
+
+            .profile-image-container {
+                height: 200px;
+
+                .image-glow {
+                    width: 150px;
+                    height: 150px;
+                }
+
+                .image-wrapper {
+                    height: 200px;
+                }
+            }
+        }
+    }
+}
+
+// ── Extra Small (≤360px) ──
+@media (max-width: 360px) {
+    .hero {
+        .hero-left {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .typewriter-wrapper {
+                font-size: 0.88rem;
+            }
+        }
+
+        .hero-right {
+            flex: 0 0 170px;
+            max-height: 170px;
+
+            .profile-image-container {
+                height: 170px;
+
+                .image-wrapper {
+                    height: 170px;
+                }
+            }
         }
     }
 }

@@ -84,12 +84,43 @@
             </div>
         </div>
 
-        <!-- Resume Download Button -->
+        <!-- Resume + Certificates Buttons -->
         <div class="resume-section" [class.revealed]="isRevealed">
             <a href="assets/resume.pdf" download class="btn-resume">
                 <i class="fa-solid fa-download"></i>
                 Download Resume
             </a>
+
+            <button class="btn-resume btn-certificates" (click)="openCertPopup()">
+                <i class="fa-solid fa-certificate"></i>
+                Download Certificates
+            </button>
+        </div>
+
+        <!-- Certificates Popup -->
+        <div class="cert-backdrop" *ngIf="isCertPopupOpen" (click)="closeCertPopup()"></div>
+        <div class="cert-popup" *ngIf="isCertPopupOpen">
+            <button class="cert-close" (click)="closeCertPopup()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h4 class="cert-popup-title">
+                <i class="fa-solid fa-certificate"></i>
+                My Certificates
+            </h4>
+            <div class="cert-list">
+                <a href="https://drive.google.com/uc?export=download&id=1rCVR5dii321hr8xC0HnlncQXcRfpc-Po"
+                    target="_blank" rel="noopener" class="cert-btn">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    <span>Certificate 1</span>
+                    <i class="fa-solid fa-arrow-down cert-arrow"></i>
+                </a>
+                <a href="https://drive.google.com/uc?export=download&id=1ltxNLsAlcqSCWTUj0ghQET55x4rLCoHM"
+                    target="_blank" rel="noopener" class="cert-btn">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    <span>Certificate 2</span>
+                    <i class="fa-solid fa-arrow-down cert-arrow"></i>
+                </a>
+            </div>
         </div>
 
     </div>

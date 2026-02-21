@@ -1,4 +1,4 @@
-import { Component, ElementRef, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, AfterViewInit, ViewChild, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
 })
 export class AboutComponent implements AfterViewInit {
     isRevealed = false;
+    isCertPopupOpen = false;
+
     @ViewChild('aboutContent') aboutContent!: ElementRef;
 
     ngAfterViewInit() {
@@ -29,5 +31,18 @@ export class AboutComponent implements AfterViewInit {
         if (section) {
             observer.observe(section);
         }
+    }
+
+    openCertPopup() {
+        this.isCertPopupOpen = true;
+    }
+
+    closeCertPopup() {
+        this.isCertPopupOpen = false;
+    }
+
+    @HostListener('document:keydown.escape')
+    onEscape() {
+        this.isCertPopupOpen = false;
     }
 }

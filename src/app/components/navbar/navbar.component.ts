@@ -19,6 +19,13 @@ export class NavbarComponent {
         this.isScrolled = window.scrollY > 50;
     }
 
+    @HostListener('window:resize', [])
+    onWindowResize() {
+        if (window.innerWidth > 900) {
+            this.isMenuOpen = false;
+        }
+    }
+
     toggleMenu() {
         this.isMenuOpen = !this.isMenuOpen;
     }

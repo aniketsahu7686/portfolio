@@ -571,6 +571,28 @@
 // ══════════════════════════════════════
 // RESPONSIVE
 // ══════════════════════════════════════
+
+// Small Laptop (≤ 1024px)
+@media (max-width: 1024px) {
+    .contact-section {
+        padding: 6rem 0;
+
+        .section-title span {
+            font-size: 2rem;
+            letter-spacing: 3px;
+        }
+
+        .contact-grid {
+            gap: 2rem;
+        }
+
+        .form-card {
+            padding: 2rem;
+        }
+    }
+}
+
+// Narrow 2-col (769px – 900px) — keep side-by-side but tighter
 @media (max-width: 900px) {
     .contact-section {
         .contact-grid {
@@ -588,9 +610,14 @@
     }
 }
 
+// Tablet (≤ 768px)
 @media (max-width: 768px) {
     .contact-section {
         padding: 5rem 0;
+
+        .container {
+            padding: 0 1.5rem;
+        }
 
         .section-title span {
             font-size: 1.8rem;
@@ -609,6 +636,7 @@
     }
 }
 
+// Small Mobile (≤ 480px)
 @media (max-width: 480px) {
     .contact-section {
         padding: 4rem 0;
@@ -632,13 +660,54 @@
 
             .form-group input,
             .form-group textarea {
-                padding: 0.8rem 1rem;
+                padding: 0.75rem 1rem;
                 font-size: 0.85rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
             }
 
             .btn-submit {
                 padding: 0.9rem 1.5rem;
                 font-size: 0.82rem;
+            }
+        }
+
+        .contact-item {
+            padding: 0.85rem 0.9rem;
+
+            .item-info .item-desc {
+                font-size: 0.78rem;
+            }
+        }
+    }
+}
+
+// Extra Small (≤ 360px)
+@media (max-width: 360px) {
+    .contact-section {
+
+        .form-card,
+        .info-card {
+            padding: 1.5rem 1rem;
+        }
+
+        .contact-form .form-group input,
+        .contact-form .form-group textarea {
+            padding: 0.65rem 0.85rem;
+            font-size: 0.82rem;
+        }
+
+        .contact-item {
+            .item-icon {
+                width: 38px;
+                height: 38px;
+
+                .brand-svg {
+                    width: 18px;
+                    height: 18px;
+                }
             }
         }
     }
