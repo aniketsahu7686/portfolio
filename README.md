@@ -28,12 +28,7 @@
 
 ## 📸 Preview
 
-> *(Add a screenshot of your portfolio here)*
-
-```
-📷 Place your portfolio screenshot at: /assets/preview.png
-Then replace this block with: ![Portfolio Preview](./assets/preview.png)
-```
+![Portfolio Preview](./src/assets/portfolio.png)
 
 ---
 
