@@ -140,28 +140,6 @@ portfolio/
 ├── package.json               # Project dependencies
 └── README.md
 ```
-
----
-
-## 🙋 Author
-
-**Aniket Sahu**
-
-- 🌐 Portfolio: [https://aniketsahu19.netlify.app](https://aniketsahu19.netlify.app)
-- 💼 GitHub: [github.com/YOUR_GITHUB_USERNAME](https://github.com/YOUR_GITHUB_USERNAME)
-- 🔗 LinkedIn: [linkedin.com/in/YOUR_LINKEDIN](https://linkedin.com/in/YOUR_LINKEDIN)
-
----
-
-## 🚧 Future Improvements
-
-- [ ] Add a **Blog / Articles** section
-- [ ] Implement **Dark / Light mode toggle**
-- [ ] Add **scroll progress indicator**
-- [ ] Integrate **GitHub API** to auto-fetch project stats
-- [ ] Add **project filter** by tech stack in the Portfolio section
-- [ ] Improve **page load performance** with lazy loading
-
 ---
 
 ## 📄 License
