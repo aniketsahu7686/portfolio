@@ -1,27 +1,200 @@
-# Portfolio
+<h1 align="center">👋 Hey there, I'm Aniket Sahu</h1>
+<h3 align="center">Java Full Stack Developer | DevOps Engineer | AWS Cloud Engineer</h3>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+<p align="center">
+  <a href="https://aniketsahu19.netlify.app" target="_blank">
+    <img src="https://img.shields.io/badge/🌐 Live Demo-aniketsahu19.netlify.app-00FF7F?style=for-the-badge&logo=netlify&logoColor=white" alt="Live Demo" />
+  </a>
+</p>
 
-## Development server
+<p align="center">
+  <img src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+  <img src="https://img.shields.io/badge/SCSS-CC6699?style=for-the-badge&logo=sass&logoColor=white" />
+  <img src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" />
+  <img src="https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white" />
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" />
+</p>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## 🖥️ Live Demo
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+🔗 **[https://aniketsahu19.netlify.app](https://aniketsahu19.netlify.app)**
 
-## Build
+> Deployed via Netlify with CI/CD — every push to `main` triggers an automatic build and deployment.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
 
-## Running unit tests
+## 📸 Preview
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+> *(Add a screenshot of your portfolio here)*
 
-## Running end-to-end tests
+```
+📷 Place your portfolio screenshot at: /assets/preview.png
+Then replace this block with: ![Portfolio Preview](./assets/preview.png)
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+## ✨ Features
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+| Feature | Description |
+|---|---|
+| 🎯 **Hero Section** | Typewriter animation with dynamic role display |
+| 👤 **About Me** | Personal intro with AWS certifications highlighted |
+| 🛠️ **Skills Section** | Categorized tech stack with animated skill cards |
+| 📂 **Portfolio Projects** | Glassmorphism project cards with live demo & code links |
+| 📩 **Contact Form** | EmailJS-powered form with real-time validation |
+| 📄 **Download Resume** | One-click resume download |
+| 🏆 **Download Certificates** | Popup to download AWS certifications individually |
+| 📱 **Fully Responsive** | Optimized for mobile, tablet, laptop, and desktop |
+| ⚡ **CI/CD Pipeline** | Auto-deployed via Netlify on every GitHub push |
+
+---
+
+## 🧱 Tech Stack
+
+### Frontend
+- **[Angular](https://angular.io/)** — Component-based SPA framework
+- **TypeScript** — Strongly typed JavaScript
+- **HTML5 / SCSS** — Semantic markup and modern styling
+- **Angular Reactive Forms** — Form handling and validation
+
+### Libraries & Tools
+- **[EmailJS](https://www.emailjs.com/)** — Contact form email delivery
+- **[SweetAlert2](https://sweetalert2.github.io/)** — Beautiful alert dialogs
+- **Font Awesome** — Icon library
+- **[Netlify](https://www.netlify.com/)** — Hosting + CI/CD
+- **GitHub** — Source control
+- **npm** — Package management
+
+---
+
+## 🚀 CI/CD Deployment
+
+This project uses a fully automated **CI/CD pipeline** via Netlify:
+
+```
+Developer → git push → GitHub → Netlify Build → Live Website
+```
+
+1. Code is pushed to the `main` branch on GitHub
+2. Netlify detects the push and triggers a new build automatically
+3. Angular app is compiled with `ng build`
+4. Output is deployed to the Netlify CDN globally
+5. Live site is updated — **zero manual steps required**
+
+---
+
+## 🛠️ Run Locally
+
+### Prerequisites
+- Node.js ≥ 18
+- npm ≥ 9
+- Angular CLI
+
+### Steps
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/YOUR_GITHUB_USERNAME/portfolio.git
+
+# 2. Navigate into the project
+cd portfolio
+
+# 3. Install dependencies
+npm install
+
+# 4. Start the development server
+npm start
+```
+
+Open your browser at **[http://localhost:4200](http://localhost:4200)**
+
+---
+
+## 📦 Build for Production
+
+```bash
+npm run build
+```
+
+The production-ready output will be in the `/dist` folder.
+
+---
+
+## 📁 Folder Structure
+
+```
+portfolio/
+├── src/
+│   ├── app/
+│   │   ├── components/
+│   │   │   ├── navbar/        # Sticky navbar with hamburger menu
+│   │   │   ├── hero/          # Hero section with typewriter effect
+│   │   │   ├── about/         # About Me + stats + certificates
+│   │   │   ├── skills/        # Categorized skills grid
+│   │   │   ├── portfolio/     # Project showcase cards
+│   │   │   ├── contact/       # Contact form + quick contact
+│   │   │   └── footer/        # Footer with scroll-to-top
+│   │   └── app.component.*    # Root component
+│   ├── assets/                # Images, resume, icons
+│   └── styles.scss            # Global styles and variables
+├── angular.json               # Angular CLI configuration
+├── package.json               # Project dependencies
+└── README.md
+```
+
+---
+
+## 🙋 Author
+
+**Aniket Sahu**
+
+- 🌐 Portfolio: [https://aniketsahu19.netlify.app](https://aniketsahu19.netlify.app)
+- 💼 GitHub: [github.com/YOUR_GITHUB_USERNAME](https://github.com/YOUR_GITHUB_USERNAME)
+- 🔗 LinkedIn: [linkedin.com/in/YOUR_LINKEDIN](https://linkedin.com/in/YOUR_LINKEDIN)
+
+---
+
+## 🚧 Future Improvements
+
+- [ ] Add a **Blog / Articles** section
+- [ ] Implement **Dark / Light mode toggle**
+- [ ] Add **scroll progress indicator**
+- [ ] Integrate **GitHub API** to auto-fetch project stats
+- [ ] Add **project filter** by tech stack in the Portfolio section
+- [ ] Improve **page load performance** with lazy loading
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+```
+MIT License
+
+Copyright (c) 2025 Aniket Sahu
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+```
+
+---
+
+<p align="center">
+  Made with ❤️ by <strong>Aniket Sahu</strong> &nbsp;|&nbsp; ⭐ Star this repo if you like it!
+</p>
