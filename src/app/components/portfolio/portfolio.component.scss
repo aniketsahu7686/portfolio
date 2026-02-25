@@ -221,6 +221,45 @@
                         }
                     }
                 }
+
+                .card-footer {
+                    margin-top: 1.2rem;
+                    display: flex;
+                    justify-content: flex-start;
+
+                    .btn-github {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        padding: 0.55rem 1.4rem;
+                        background: transparent;
+                        color: $color-primary;
+                        border: 1px solid $color-primary;
+                        border-radius: 50px;
+                        font-size: 0.85rem;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        text-decoration: none;
+                        transition: all 0.3s ease;
+
+                        svg {
+                            flex-shrink: 0;
+                            transition: transform 0.3s ease;
+                        }
+
+                        &:hover {
+                            background: $color-primary;
+                            color: #000;
+                            box-shadow: 0 0 20px rgba(0, 255, 127, 0.3);
+                            transform: scale(1.05);
+
+                            svg {
+                                transform: rotate(360deg);
+                            }
+                        }
+                    }
+                }
             }
         }
     }

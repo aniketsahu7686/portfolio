@@ -11,35 +11,32 @@ export class DataService {
     private projects: Project[] = [
         {
             id: 1,
-            title: 'E-Commerce Platform',
-            description: 'A full-featured e-commerce application with cart and checkout.',
-            imageUrl: 'https://via.placeholder.com/600x400',
-            tags: ['Angular', 'Node.js', 'MongoDB'],
+            title: 'Human Disease Predictor',
+            description: 'A machine learning based web application that predicts possible human diseases based on symptoms entered by the user.',
+            imageUrl: 'assets/Human Diesease predictor.png',
+            tags: ['Java', 'Spring Boot', 'Machine Learning', 'Angular'],
             links: {
-                demo: '#',
-                github: '#'
+                github: 'https://github.com/aniketsahu7686/HumanDiseasePredictor'
             }
         },
         {
             id: 2,
-            title: 'Task Management App',
-            description: 'A productivity tool for managing daily tasks and projects.',
-            imageUrl: 'https://via.placeholder.com/600x400',
-            tags: ['React', 'Firebase', 'Tailwind'],
+            title: 'AWS Lift and Shift – SaaS to PaaS Migration',
+            description: 'Migrated a traditional SaaS architecture to AWS PaaS using services like Elastic Beanstalk, RDS, and S3 to improve scalability, availability, and management.',
+            imageUrl: 'assets/Aws.png',
+            tags: ['AWS', 'Elastic Beanstalk', 'RDS', 'DevOps'],
             links: {
-                demo: '#',
-                github: '#'
+                github: 'https://github.com/aniketsahu7686/AWS-lift-shift-Saas-Paas'
             }
         },
         {
             id: 3,
-            title: 'Portfolio Website',
-            description: 'This very website you are looking at!',
-            imageUrl: 'https://via.placeholder.com/600x400',
-            tags: ['Angular', 'SCSS', 'Responsive'],
+            title: 'Pothole Detection System',
+            description: 'A computer vision based system that detects potholes on roads using image processing techniques to improve road safety.',
+            imageUrl: 'assets/pothole.png',
+            tags: ['Python', 'Computer Vision', 'OpenCV'],
             links: {
-                demo: '#',
-                github: '#'
+                github: 'https://github.com/aniketsahu7686/Pothole'
             }
         }
     ];
