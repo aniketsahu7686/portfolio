@@ -30,6 +30,7 @@
                         <span class="tag" *ngFor="let tag of project.tags">{{ tag }}</span>
                     </div>
                     <div class="card-footer">
+                        <a *ngIf="project.links.demo" [href]="project.links.demo" target="_blank" class="btn-link btn-visit-site">Visit Site &rarr;</a>
                         <a [href]="project.links.github" target="_blank" class="btn-github">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                 fill="currentColor">
