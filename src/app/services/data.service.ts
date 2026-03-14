@@ -12,9 +12,9 @@ export class DataService {
         {
             id: 1,
             title: 'AI Test Script Generator',
-            description: 'A web application that leverages AI to generate automated test scripts for QA, streamlining the testing process and improving efficiency.',
+            description: `Features:\n- Requirement Input: Paste any user story or business requirement\n- AI Test Case Generation: Structured test cases with ID, scenario, steps, expected result, and type\n- Automation Script Generation: Playwright Python scripts using sync_api\n- Download Options: Export test cases as DOCX, PDF, or JSON; scripts as .py\n- Execution Simulation: Simulated PASS/FAIL results for demo purposes\n- Dashboard: Visual overview with stats cards, progress bar, and results table\n\nTech Stack:\nFrontend: Angular 17 (standalone components)\nBackend: Java 17, Spring Boot 3.2\nAI: OpenAI GPT-3.5-turbo API\nPDF: OpenPDF\nDOCX: Apache POI\nAutomation: Playwright Python (generated scripts)`,
             imageUrl: 'assets/QA Automation Testing.png',
-            tags: ['Python', 'Machine Learning', 'QA Automation', 'Angular'],
+            tags: ['Java', 'Angular', 'Spring Boot', 'OpenAI', 'Playwright', 'Automation'],
             links: {
                 github: 'https://github.com/aniketsahu7686/AI-Test-Script-Generator'
             }
