@@ -18,6 +18,7 @@
                     <img [src]="project.imageUrl" [alt]="project.title">
                     <div class="overlay">
                         <div class="links">
+                            <a *ngIf="project.links.demo" [href]="project.links.demo" target="_blank" class="btn-link btn-visit-site">Visit Site &rarr;</a>
                             <a [href]="project.links.github" target="_blank" class="btn-link">GitHub</a>
                         </div>
                     </div>

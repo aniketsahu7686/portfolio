@@ -16,7 +16,8 @@ export class DataService {
             imageUrl: 'assets/QA Automation Testing.png',
             tags: ['Java', 'Angular', 'Spring Boot', 'OpenAI', 'Playwright', 'Automation'],
             links: {
-                github: 'https://github.com/aniketsahu7686/AI-Test-Script-Generator'
+                github: 'https://github.com/aniketsahu7686/AI-Test-Script-Generator',
+                demo: 'https://qa-testingproject.netlify.app/generator'
             }
         },
         {
