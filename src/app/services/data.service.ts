@@ -11,12 +11,12 @@ export class DataService {
     private projects: Project[] = [
         {
             id: 1,
-            title: 'Human Disease Predictor',
-            description: 'A machine learning based web application that predicts possible human diseases based on symptoms entered by the user.',
-            imageUrl: 'assets/Human Diesease predictor.png',
-            tags: ['Java', 'Spring Boot', 'Machine Learning', 'Angular'],
+            title: 'AI Test Script Generator',
+            description: 'A web application that leverages AI to generate automated test scripts for QA, streamlining the testing process and improving efficiency.',
+            imageUrl: 'assets/QA Automation Testing.png',
+            tags: ['Python', 'Machine Learning', 'QA Automation', 'Angular'],
             links: {
-                github: 'https://github.com/aniketsahu7686/HumanDiseasePredictor'
+                github: 'https://github.com/aniketsahu7686/AI-Test-Script-Generator'
             }
         },
         {
